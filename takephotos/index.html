@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taking pictures</title>
+    <style>
+        .none {
+            -webkit-filter: none;	
+        }
+
+        .blur {
+            -webkit-filter: blur(3px);	
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(1); 	
+        }
+
+        .invert {
+            -webkit-filter: invert(1);	
+        }
+
+        .sepia {
+            -webkit-filter: sepia(1);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <label>Filter</label>
+        <select id="filter">
+            <option value="none">none</option>
+            <option value="blur">blur</option>
+            <option value="grayscale">grayscale</option>
+            <option value="invert">invert</option>
+            <option value="sepia">sepia</option>
+        </select>
+    </div>
+    <div>
+        <video autoplay playsinline id="player"></video>
+    </div>
+    <selection>
+        <div>
+            <button id="snapshot">take snapshot</button>
+        </div>
+        <div>
+            <canvas id="picture"></canvas>
+        </div>
+    </selection>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="./js/client.js"></script>
+</body>
+</html>

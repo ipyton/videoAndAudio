@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Capture demo</title>
 </head>
 <body>
     <h1>capture with webrtc</h1>
     <video autoplay playsinline></video>
+    <div>
+        <label>audio input device:</label>
+        <select id="audioSource"></select>
+    </div>
+    <div>
+        <label>audio output device:</label>
+        <select id="audioOutput"></select>
+    </div>
+    <div>
+        <label>video input device:</label>
+        <select id="videoSource"></select>
+    </div>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script src="capture.js"></script>
 </body>
 </html>
