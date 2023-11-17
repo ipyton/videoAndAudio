@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recorder</title>
+</head>
+<body>
+    <div>
+        <video autoplay playsinline id="player"></video>
+    </div>
+    <div>
+        <button id="record">start</button>
+        <button id="recplay" disabled>play</button>
+        <button id="download" disabled>download</button>
+    </div>
+    <div>
+        <video playsinline id="recplayer"></video>
+    </div>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="./client.js"></script>
+</body>
+</html>

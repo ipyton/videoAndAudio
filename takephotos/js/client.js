@@ -11,9 +11,6 @@ var videoplay = document.querySelector('video#player')
 
 function getMediaStream(stream) {
     // var videoTrack = stream.getVideoTracks()[0];
-
-
-
     window.stream = stream;
     videoplay.srcObject = stream;
 }
@@ -42,6 +39,16 @@ function start() {
      }
 }
 
+function download(url){
+    var downloadElement = document.createElement('a');
+    downloadElement.download = 'photo';
+    downloadElement.href = url;
+    document.body.appendChild(downloadElement);
+    downloadElement.click();
+    downloadElement.remove();
+
+}
+
 filterSelect.onchange = function() {
     videoplay.className = filterSelect.value;
 }
@@ -50,5 +57,10 @@ snapshot.onclick = function() {
     picture.className = filterSelect.value;
     picture.getContext('2d').drawImage(videoplay, 0, 0, picture.width, picture.height);
 }
+
+document.querySelector('button#save').onclick = function() {
+    download(canvas.toDataURL("image/jpeg"))
+}
+
 
 start();
