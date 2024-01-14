@@ -129,10 +129,16 @@
   <ItemGroup>
     <ClCompile Include="complex.cpp" />
     <ClCompile Include="cppStartup.cpp" />
+    <ClCompile Include="MyString.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex.h" />
+    <ClInclude Include="MyString.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="testSuiteForComplex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="cppStartup.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

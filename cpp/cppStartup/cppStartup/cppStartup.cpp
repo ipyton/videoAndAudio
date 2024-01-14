@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include "testSuiteForComplex.h"
+#include "MyString.h"
 
 int  main()
 {   
-    testSuiteForComplex::test();
+    char a[]{ 'a','b', '\0' };
+    cout << MyString(a) << endl;
 
 }
 
