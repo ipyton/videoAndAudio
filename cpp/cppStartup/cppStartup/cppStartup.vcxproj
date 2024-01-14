@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="complex.h" />
     <ClInclude Include="MyString.h" />
+    <ClInclude Include="oop.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="testSuiteForComplex.h" />
   </ItemGroup>

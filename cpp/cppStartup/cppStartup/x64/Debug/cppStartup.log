@@ -1,2 +1,5 @@
-﻿  MyString.cpp
+﻿  cppStartup.cpp
+G:\videos\cpp\cppStartup\cppStartup\oop.h(54,22): warning C4930: 'example1::pair<example1::Base1,example1::Base2> p2(example1::pair<example1::Derived1,example1::Derived2> (__cdecl *)(void))': prototyped function not called (was a variable definition intended?)
+  (compiling source file 'cppStartup.cpp')
+  
   cppStartup.vcxproj -> G:\videos\cpp\cppStartup\x64\Debug\cppStartup.exe
