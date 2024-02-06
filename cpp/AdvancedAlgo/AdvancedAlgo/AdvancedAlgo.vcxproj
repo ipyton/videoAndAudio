@@ -128,7 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdvancedAlgo.cpp" />
-    <ClCompile Include="RbTree.cpp" />
+    <ClCompile Include="RbTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\资料结合\资料\1.1随处可见的红黑树\二叉树与红黑树.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

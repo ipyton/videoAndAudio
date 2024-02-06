@@ -18,8 +18,13 @@
     <ClCompile Include="AdvancedAlgo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RbTree.cpp">
+    <ClCompile Include="RbTree.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\资料结合\资料\1.1随处可见的红黑树\二叉树与红黑树.pdf">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

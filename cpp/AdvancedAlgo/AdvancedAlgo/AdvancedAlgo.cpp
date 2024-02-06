@@ -3,16 +3,18 @@
 
 #include <iostream>
 
-#include "RbTree.cpp"
+#include "RbTree.h"
 int main()
 {
     RBTree<int,int>* tree = new RBTree<int,int>();
     int keyArray[20] = { 24,25,13,35,23, 26,67,47,38,98, 20,19,17,49,12, 21,9,18,14,15 };
     for (int i = 0; i < 20; i++) {
         tree->insert_node(keyArray[i], keyArray[i]);
+        std::cout << keyArray[i] << endl;
     }
 
     std::cout << "Hello World!\n";
+    tree->traverse();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
