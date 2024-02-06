@@ -14,6 +14,7 @@ int main()
     }
 
     std::cout << "Hello World!\n";
+    tree->delete_by_key(24);
     tree->traverse();
 }
 

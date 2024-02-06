@@ -76,15 +76,18 @@ public:
 		node->parent = y;
 	}
 
-	TreeNode<KEY,VALUE> * getMin() {
-		TreeNode<KEY,VALUE>* node = root;
-		while (node->left) {
-			node = node->left;
-		}
-		return node->value;
+	TreeNode<KEY, VALUE>* getMin() {
+		return getMin(root);
 	}
 
-	TreeNode<KEY,VALUE> * getMax() {
+	TreeNode<KEY,VALUE> * getMin(TreeNode<KEY,VALUE>* node) {
+		while (node->left != empty) {
+			node = node->left;
+		}
+		return node;
+	}
+
+	TreeNode<KEY,VALUE> * getMax(TreeNode<KEY, VALUE>* node) {
 		TreeNode<KEY,VALUE>* node = root;
 		while (node->right) {
 			node = node->right;
@@ -164,14 +167,16 @@ public:
 					node = node->parent;
 				}
 				else if (w->right->color == "black") {
-
+					w->left->color = "black";
+					w->color = "red";
+					rightRotate(w);
 				}
 				else {
 					w->color = node->parent->color;
 					node->parent->color = "black";
-					w->left->color = "black";
-					rightRotate(node->parent);
-					node->root;
+					w->right->color = "black";
+					leftRotate(node->parent);
+					node = root;
 				}
 			}
 			else {
@@ -253,7 +258,7 @@ public:
 		return empty;
 	}
 
-	void delete_by_key(KEY * key) {
+	void delete_by_key(KEY  key) {
 		TreeNode<KEY,VALUE> * z = search(key);
 		if (z == empty) {
 			return;
@@ -266,7 +271,7 @@ public:
 			y = z;
 		}
 		else {
-			y = successor(key);
+			y = successor(z);
 		}
 
 		if (y->left != empty) {
@@ -296,8 +301,6 @@ public:
 		if (y->color == "black") {
 			delete_fix_up(x);
 		}
-		return y;
-
 	}
 
 	void traverse(TreeNode<KEY, VALUE> * node) {
