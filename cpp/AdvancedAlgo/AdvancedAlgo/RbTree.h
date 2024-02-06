@@ -212,10 +212,10 @@ public:
 		{
 			result = ptr;
 			if (ptr->key > key) {
-				ptr = ptr->right;
+				ptr = ptr->left;
 			}
 			else if (ptr->key < key) {
-				ptr = ptr->left;
+				ptr = ptr->right;
 			}
 			else {
 				return;
