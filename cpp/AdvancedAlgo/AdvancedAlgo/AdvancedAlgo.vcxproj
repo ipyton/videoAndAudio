@@ -133,6 +133,9 @@
   <ItemGroup>
     <None Include="..\..\..\..\资料结合\资料\1.1随处可见的红黑树\二叉树与红黑树.pdf" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BTree.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
