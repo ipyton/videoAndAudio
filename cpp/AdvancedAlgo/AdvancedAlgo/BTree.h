@@ -200,12 +200,68 @@ public:
 		}
 
 		if (idx < node->num && key == node->keys[idx]) {
-			
 
+			if (node->leaf) {	
+				for (i = idx; i < node->num - 1; i++) {
+					node->keys[i] = node->keys[i + 1];
+				}
+
+				node->keys[node->num - 1] = 0;
+				node->num--;
+
+				if (node->num == 0) {
+					delete node;
+					// ???
+					//root = NULL;
+				}
+
+				return;
+			}
+			else if (node->children[idx]->num >= t) {
+				//the number of children larger than t
+				BTreeNode* left = node->children[idx];
+				node->keys[idx] = left->keys[left->num - 1];
+				delete_key(left, left->keys[left->num - 1]);
+			}
+			else if (node->children[idx + 1]->num >= t) {
+				// the number of 
+				BTreeNode* right = node->children[idx + 1];
+				node->keys[idx] = right->keys[0];
+				delete_key(right, right->keys[0]);
+			}
+			else {
+				merge(node, idx);
+				delete_key(node->children[idx], key);
+			}
 		}
 		else {
 			//idx >= node->num || key < node->keys[idx]
+			//go to find its children
+			BTReeNode* child = node->children[idx];
+			if (child == NULL) {
+				return;
+			}
+			if (child->num == t - 1) {
 
+				BTreeNode* left;
+				BTreeNode* right;
+
+				if (idx - 1 >= 0) {
+
+				} 
+				if (idx + 1 <= node->num) {
+
+				}
+				if ((left && left->num >= t) || (right && right->num >= t)) {
+
+				}
+
+
+
+			}
+			else if ((!left || (left->num == t - 1)) && 
+				(!right || (right->num ==t - 1)) {
+			}
 
 
 		}
