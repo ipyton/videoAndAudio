@@ -5,7 +5,7 @@ template<typename KEY, typename VALUE>
 class BTreeNode {
 public:
 	bool isLeaf;
-	//children的数量
+	//key的数量
 	int num;
 	vector<BTreeNode*> children;
 	vector<KEY*> keys;
@@ -243,27 +243,66 @@ public:
 			}
 			if (child->num == t - 1) {
 
-				BTreeNode* left;
-				BTreeNode* right;
+				BTreeNode* left = NULL;
+				BTreeNode* right = NULL;
 
 				if (idx - 1 >= 0) {
-
+					left = node->children[idx - 1];
 				} 
 				if (idx + 1 <= node->num) {
-
+					right = node->children[idx + 1];
 				}
-				if ((left && left->num >= t) || (right && right->num >= t)) {
+				if ((left && left->num >= t) || 
+					(right && right->num >= t)) { 
+					int richR = 0; //only right or left& right & right->num > left->num.
+					if (right) richR = 1;
+					if (left && right) richR = (right->num > left->num) ? 1 : 0;
 
+					if (richR && right->num >= t) {//borrow from next.
+						child->keys[child->num] = node->keys[idx];
+						child->num++;
+						node->key[idx] = right->keys[0];
+
+						child->children[child->num] = right->children[0];
+						for (i = 0; i < right->num; i++) {
+							right->keys[i] = right->keys[i + 1];
+							right->children[i] = right->children[i + 1];
+						}
+						right->keys[right->num - 1] = 0;
+						right->children[right->num = 1] = right->children[right->num];
+						right->children[right->num] = NULL;
+						right->num  --;
+					}
+					else { // borrow from previous node.
+						for (i = child->num; i > 0; i--) {
+							child->keys[i] = child->keys[i - 1];
+							child->children[i + 1] = child->children[i];
+						}
+						child->children[1] = child->children[0];
+						child->children[0] = left->children[left->num];
+						child->keys[0] = node->keys[idx - 1];
+
+						child->num++;
+
+						node->key[idx - 1] = left->keys[left->num - 1];
+						left->keys[left->num - 1] = 0;
+						left->children[left->num] = NULL;
+						left->num--;
+					}
 				}
+				else if ((!left || (left->num == t - 1)) 
+					&& (!right || (right->num == t - 1)) {
 
-
-
+					if (left && left->num == t - 1) {
+						merge(node, idx - 1);
+						child = left;
+					}
+					else if (right && right->num == t - 1) {
+						merge(node, idx);
+					}
+				}
 			}
-			else if ((!left || (left->num == t - 1)) && 
-				(!right || (right->num ==t - 1)) {
-			}
-
-
+			delete_key(child, key);
 		}
 	}
 
